@@ -1,0 +1,48 @@
+[debug] [2022-11-03T20:51:07.341Z] ----------------------------------------------------------------------
+[debug] [2022-11-03T20:51:07.343Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
+[debug] [2022-11-03T20:51:07.343Z] CLI Version:   11.15.0
+[debug] [2022-11-03T20:51:07.343Z] Platform:      darwin
+[debug] [2022-11-03T20:51:07.343Z] Node Version:  v14.18.0
+[debug] [2022-11-03T20:51:07.344Z] Time:          Thu Nov 03 2022 14:51:07 GMT-0600 (Mountain Daylight Time)
+[debug] [2022-11-03T20:51:07.344Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-03T20:51:07.402Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-03T20:51:07.403Z] > authorizing via signed-in user (coreykuether1@gmail.com)
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[debug] [2022-11-03T20:51:07.817Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2022-11-03T20:51:07.818Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2022-11-03T20:51:07.818Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2022-11-03T20:51:07.823Z] [hub] writing locator at /var/folders/qj/wvzggsdj2550z09yjwzq4fxc0000gn/T/hub-liftfh-ff63d.json
+[debug] [2022-11-03T20:51:07.845Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/liftfh-ff63d/sites 
+[debug] [2022-11-03T20:51:08.260Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/liftfh-ff63d/sites 200
+[debug] [2022-11-03T20:51:08.260Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/liftfh-ff63d/sites {"sites":[{"name":"projects/liftfh-ff63d/sites/liftfh-ff63d","defaultUrl":"https://liftfh-ff63d.web.app","appId":"1:244904904654:web:191433d61810e944324d9f","type":"DEFAULT_SITE"}]}
+[debug] [2022-11-03T20:51:08.261Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/liftfh-ff63d/webApps/1:244904904654:web:191433d61810e944324d9f/config [none]
+[debug] [2022-11-03T20:51:08.514Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/liftfh-ff63d/webApps/1:244904904654:web:191433d61810e944324d9f/config 200
+[debug] [2022-11-03T20:51:08.514Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/liftfh-ff63d/webApps/1:244904904654:web:191433d61810e944324d9f/config {"projectId":"liftfh-ff63d","appId":"1:244904904654:web:191433d61810e944324d9f","databaseURL":"https://liftfh-ff63d.firebaseio.com","storageBucket":"liftfh-ff63d.appspot.com","locationId":"us-central","apiKey":"AIzaSyBQqsTMwt45sD57wn8QnV_3ibGHUcbXlxU","authDomain":"liftfh-ff63d.firebaseapp.com","messagingSenderId":"244904904654","measurementId":"G-9BW18EVFYH"}
+[debug] [2022-11-03T20:51:08.544Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/liftfh-ff63d [none]
+[debug] [2022-11-03T20:51:08.702Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/liftfh-ff63d 200
+[debug] [2022-11-03T20:51:08.702Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/liftfh-ff63d {"projectId":"liftfh-ff63d","projectNumber":"244904904654","displayName":"LiftFH","name":"projects/liftfh-ff63d","resources":{"hostingSite":"liftfh-ff63d","realtimeDatabaseInstance":"liftfh-ff63d","storageBucket":"liftfh-ff63d.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_c615e318-ce8e-44f0-a85b-87e96bdd98a6"}
+[info] i  hosting[liftfh-ff63d]: Serving hosting files from: dist/JourneyFitnessWebsite {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist/JourneyFitnessWebsite\u001b[22m"}}
+[info] ✔  hosting[liftfh-ff63d]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[warn] ⚠  emulators: The Emulator UI is not starting, either because none of the emulated products have an interaction layer in Emulator UI or it cannot determine the Project ID. Pass the --project flag to specify a project. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI is not starting, either because none of the emulated products have an interaction layer in Emulator UI or it cannot determine the Project ID. Pass the --project flag to specify a project."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ 127.0.0.1:5000 │
+└──────────┴────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] "GET / HTTP/1.1" 200 549 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] \"GET / HTTP/1.1\" 200 549 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] "GET /styles.31d6cfe0d16ae931b73c.css HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] \"GET /styles.31d6cfe0d16ae931b73c.css HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] "GET /runtime.fbcc2c0a4537ee75f253.js HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] \"GET /runtime.fbcc2c0a4537ee75f253.js HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] "GET /polyfills.1375fce0dabd1ed0e414.js HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] \"GET /polyfills.1375fce0dabd1ed0e414.js HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] "GET /main.dd13dcb8b2c731d2d9ac.js HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [03/Nov/2022:20:51:11 +0000] \"GET /main.dd13dcb8b2c731d2d9ac.js HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [03/Nov/2022:20:51:12 +0000] "GET / HTTP/1.1" 200 549 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [03/Nov/2022:20:51:12 +0000] \"GET / HTTP/1.1\" 200 549 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
