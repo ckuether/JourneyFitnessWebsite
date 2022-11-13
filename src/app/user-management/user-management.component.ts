@@ -8,10 +8,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserManagementComponent implements OnInit {
 
-  mode: string = ""
-  oobCode: string = ""
+  mode?: string|null = null
+  oobCode?: string|null = null
 
   constructor(private route: ActivatedRoute) { 
+    console.log("TEST")
     this.route.paramMap.subscribe(params => {
       this.mode = params.get("mode")
       this.oobCode = params.get("oobCode")
