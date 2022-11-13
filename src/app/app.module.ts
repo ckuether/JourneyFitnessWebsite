@@ -18,7 +18,12 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([{path: 'usermgmt', component: UserManagementComponent}])
+    RouterModule.forRoot([
+      { path: '', component: HomePageComponent},
+      { path: 'usermgmt', component: UserManagementComponent},
+      { path: 'privacy-policy', component: PrivacyPolicyComponent},
+      { path: 'terms-conditions', component: TermsConditionsComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
