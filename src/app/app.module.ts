@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +15,14 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
     HomePageComponent,
     UserManagementComponent,
     PrivacyPolicyComponent,
-    TermsConditionsComponent
+    TermsConditionsComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: '', component: HomePageComponent},
+      { path: 'auth/action', component: AuthComponent},
       { path: 'usermgmt', component: UserManagementComponent},
       { path: 'privacy-policy', component: PrivacyPolicyComponent},
       { path: 'terms-conditions', component: TermsConditionsComponent }
