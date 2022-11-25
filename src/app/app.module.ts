@@ -8,6 +8,11 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { AuthComponent } from './auth/auth.component';
+import { environment } from '../environments/environment';
+
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,16 +21,19 @@ import { AuthComponent } from './auth/auth.component';
     UserManagementComponent,
     PrivacyPolicyComponent,
     TermsConditionsComponent,
-    AuthComponent
+    AuthComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
     RouterModule.forRoot([
       { path: '', component: HomePageComponent},
       { path: 'auth/action', component: AuthComponent},
-      { path: 'usermgmt', component: UserManagementComponent},
       { path: 'privacy-policy', component: PrivacyPolicyComponent},
-      { path: 'terms-conditions', component: TermsConditionsComponent }
+      { path: 'terms-conditions', component: TermsConditionsComponent },
+      { path: 'usermgmt', component: UserManagementComponent}
     ])
   ],
   providers: [],
