@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
-import { getAuth, Auth, isSignInWithEmailLink, signInWithEmailLink } from "@angular/fire/auth";
+import { Auth, isSignInWithEmailLink, signInWithEmailLink } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-auth',
@@ -12,8 +13,9 @@ export class AuthComponent implements OnInit {
   mode?: string|null = null
   oobCode?: string|null = null
 
+  email?: string|null = null
+
   constructor(private route: ActivatedRoute, private auth: Auth) { 
-    
     this.route.queryParamMap.subscribe(params => {
       this.mode = params.get("mode")
       this.oobCode = params.get("oobCode")
@@ -21,8 +23,7 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("Test")
-
+    console.log(window.location.href)
     if(isSignInWithEmailLink(this.auth, window.location.href)){
       console.log("Entered")
       // Additional state parameters can also be passed via URL.
@@ -57,6 +58,10 @@ export class AuthComponent implements OnInit {
     }else{
       console.log("Failed")
     }
+  }
+
+  onSubmit(form: NgForm){
+    
   }
 
 }

@@ -9,8 +9,19 @@
 <body>
 	<div>
 		<div class="center">
-	  		<div class="header-text"><b>Email Verified</b></div>
-	  		<div class="tagline-text"><b>test@gmail.com</b></div>
+			<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+		  		<div class="header-text"><b>Journey Fitness</b></div>
+		  		<div class="email-header-text"><b>Verify Email</b></div>
+
+		  		<input
+		  		class="email-input form-control"
+		  		[(ngModel)]="email"
+		  		name="email"
+		  		required
+		  		type="text">
+
+		  		<button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+	  		</form>
 		</div>
 	</div>
 </body>

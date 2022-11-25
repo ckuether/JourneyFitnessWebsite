@@ -9,10 +9,17 @@
 .header-text{
 	font-size: 48px;
 	color: #E96943;
+	text-align: center;
+	padding-bottom: 16px;
 }
 
-.tagline-text{
-	font-size: 32px;
+.email-header-text{
+	font-size: 24px;
 	color: #242424;
-	text-align: center;
+	padding-bottom: 8px;
+}
+
+.email-input{
+    width: 200px;
+    margin-right: 8px;
 }
