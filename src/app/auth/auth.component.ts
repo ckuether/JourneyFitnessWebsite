@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
-import { Auth, isSignInWithEmailLink, signInWithEmailLink } from "@angular/fire/auth";
+import { Auth, isSignInWithEmailLink, signInWithEmailLink, applyActionCode } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-auth',
@@ -31,37 +31,29 @@ export class AuthComponent implements OnInit {
       // the sign-in operation.
       // Get the email if available. This should be available if the user completes
       // the flow on the same device where they started it.
-      let email = window.localStorage.getItem("emailForSignIn")
-      if(!email){
-        console.log("No email")
-        // User opened the link on a different device. To prevent session fixation
-        // attacks, ask the user to provide the associated email again. For example:
-        email = window.prompt('Please provide your email for confirmation');
+      let emailCookie = window.localStorage.getItem("emailForSignIn")
+      if(!emailCookie){
+        console.log("Do something")
       }
-      // The client SDK will parse the code from the link for you.
-      // signInWithEmailLink(auth, email, window.location.href)
-      //   .then((result) => {
-      //     // Clear email from storage.
-      //     window.localStorage.removeItem('emailForSignIn');
-      //     // You can access the new user via result.user
-      //     // Additional user info profile not available via:
-      //     // result.additionalUserInfo.profile == null
-      //     // You can check if the user is new or existing:
-      //     // result.additionalUserInfo.isNewUser
-      //     console.log("Success")
-      //   })
-      //   .catch((error) => {
-      //     // Some error occurred, you can inspect the code: error.code
-      //     // Common errors could be invalid email and invalid or expired OTPs.
-      //     console.log("Failed")
-      //   });
-    }else{
-      console.log("Failed")
     }
   }
 
   onSubmit(form: NgForm){
-    
+    console.log(this.email)
+    if(this.email != null){
+      this.signInWithEmail()
+    }
+  }
+
+  signInWithEmail(){
+    console.log("Email Sign In Entered: ")
+    if(this.oobCode != null){
+      applyActionCode(this.auth, this.oobCode!).then((resp) => {
+        console.log("Success")
+      }).catch((error) => {
+        console.log(error)
+      })
+    }
   }
 
 }
