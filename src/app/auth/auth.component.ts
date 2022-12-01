@@ -10,6 +10,9 @@ import { Auth, isSignInWithEmailLink, signInWithEmailLink, applyActionCode } fro
 })
 export class AuthComponent implements OnInit {
 
+  isEmailInputPrompt: boolean = true
+  emailVerified: boolean|null = null
+
   mode?: string|null = null
   oobCode?: string|null = null
 
@@ -41,16 +44,18 @@ export class AuthComponent implements OnInit {
   onSubmit(form: NgForm){
     console.log(this.email)
     if(this.email != null){
-      this.signInWithEmail()
+      this.verifyEmail()
     }
   }
 
-  signInWithEmail(){
+  verifyEmail(){
     console.log("Email Sign In Entered: ")
     if(this.oobCode != null){
       applyActionCode(this.auth, this.oobCode!).then((resp) => {
+        this.emailVerified = true
         console.log("Success")
       }).catch((error) => {
+        this.emailVerified = false
         console.log(error)
       })
     }
