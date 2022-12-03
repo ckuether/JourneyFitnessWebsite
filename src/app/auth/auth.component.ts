@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 import { Auth, isSignInWithEmailLink, signInWithEmailLink, applyActionCode } from "@angular/fire/auth";
+import { CookieService } from 'ngx-cookie-service'
 
 @Component({
   selector: 'app-auth',
@@ -9,6 +10,8 @@ import { Auth, isSignInWithEmailLink, signInWithEmailLink, applyActionCode } fro
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
+
+  testEmail: string = "https://journey.fitness/auth/action?mode=verifyEmail&oobCode=LR3BtZW2TJu3KbPQoeallYDS2xl3ZKeReVm6XK2VX1gAAAGEnDYrTw&apiKey=AIzaSyANEm1zULSy_Keu-5x62Mt1GfdqpWWAXTA&lang=en"
 
   isEmailInputPrompt: boolean = true
   emailVerified: boolean|null = null
@@ -18,7 +21,7 @@ export class AuthComponent implements OnInit {
 
   email?: string|null = null
 
-  constructor(private route: ActivatedRoute, private auth: Auth) { 
+  constructor(private route: ActivatedRoute, private auth: Auth, private cookieService:CookieService) { 
     this.route.queryParamMap.subscribe(params => {
       this.mode = params.get("mode")
       this.oobCode = params.get("oobCode")
@@ -26,19 +29,12 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(window.location.href)
-    if(isSignInWithEmailLink(this.auth, window.location.href)){
-      console.log("Entered")
-      // Additional state parameters can also be passed via URL.
-      // This can be used to continue the user's intended action before triggering
-      // the sign-in operation.
-      // Get the email if available. This should be available if the user completes
-      // the flow on the same device where they started it.
-      let emailCookie = window.localStorage.getItem("emailForSignIn")
-      if(!emailCookie){
-        console.log("Do something")
-      }
-    }
+
+    let email = this.cookieService.get('emailVerification')
+    let cookies = this.cookieService.getAll()
+
+    console.log('email: ' + email)
+    console.log(cookies)
   }
 
   onSubmit(form: NgForm){
