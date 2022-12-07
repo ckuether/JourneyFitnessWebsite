@@ -9,7 +9,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
-import { AuthComponent } from './auth/auth.component';
 import { environment } from '../environments/environment';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -23,7 +22,6 @@ import { RegisterComponent } from './register/register.component';
     UserManagementComponent,
     PrivacyPolicyComponent,
     TermsConditionsComponent,
-    AuthComponent,
     RegisterComponent
   ],
   imports: [
@@ -33,7 +31,6 @@ import { RegisterComponent } from './register/register.component';
     provideAuth(() => getAuth()),
     RouterModule.forRoot([
       { path: '', component: HomePageComponent},
-      { path: 'auth/action', component: AuthComponent},
       { path: 'privacy-policy', component: PrivacyPolicyComponent},
       { path: 'terms-conditions', component: TermsConditionsComponent },
       { path: 'usermgmt', component: UserManagementComponent}

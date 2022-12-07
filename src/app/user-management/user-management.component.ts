@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
+import { Auth, isSignInWithEmailLink, signInWithEmailLink, applyActionCode } from "@angular/fire/auth";
+import { CookieService } from 'ngx-cookie-service'
 
 @Component({
   selector: 'app-user-management',
@@ -8,12 +11,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserManagementComponent implements OnInit {
 
+  isEmailInputPrompt: boolean = true
+  emailVerified: boolean|null = null
+
   mode?: string|null = null
   oobCode?: string|null = null
 
-  constructor(private route: ActivatedRoute) { 
-    console.log("TEST")
-    this.route.paramMap.subscribe(params => {
+  email?: string|null = null
+
+  constructor(private route: ActivatedRoute, private auth: Auth, private cookieService:CookieService) { 
+    this.route.queryParamMap.subscribe(params => {
       this.mode = params.get("mode")
       this.oobCode = params.get("oobCode")
     })
@@ -21,8 +28,31 @@ export class UserManagementComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log("mode: " + this.mode)
-    console.log("oobCode: " + this.oobCode)
+    let email = this.cookieService.get('emailVerification')
+    let cookies = this.cookieService.getAll()
+
+    console.log('email: ' + email)
+    console.log(cookies)
+  }
+
+  onSubmit(form: NgForm){
+    console.log(this.email)
+    if(this.email != null){
+      this.verifyEmail()
+    }
+  }
+
+  verifyEmail(){
+    console.log("Email Sign In Entered: ")
+    if(this.oobCode != null){
+      applyActionCode(this.auth, this.oobCode!).then((resp) => {
+        this.emailVerified = true
+        console.log("Success")
+      }).catch((error) => {
+        this.emailVerified = false
+        console.log(error)
+      })
+    }
   }
 
 }
