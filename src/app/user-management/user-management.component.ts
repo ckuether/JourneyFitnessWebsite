@@ -17,12 +17,18 @@ export class UserManagementComponent implements OnInit {
   mode?: string|null = null
   oobCode?: string|null = null
 
+  isEmailVerification: boolean = false
+
   email?: string|null = null
 
   constructor(private route: ActivatedRoute, private auth: Auth, private cookieService:CookieService) { 
     this.route.queryParamMap.subscribe(params => {
       this.mode = params.get("mode")
       this.oobCode = params.get("oobCode")
+
+      if(this.mode == "verifyEmail"){
+        this.isEmailVerification = true
+      }
     })
   }
 
