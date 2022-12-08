@@ -7,6 +7,9 @@
       "**/node_modules/**"
     ],
     "appAssociation": "AUTO",
-    "rewrites": [ { "source": "/**", "dynamicLinks": true } ]
+    "rewrites": [
+      { "source": "/test/", "dynamicLinks": true },
+      { "source": "**", "destination": "/index.html" }
+    ]
   }
 }
