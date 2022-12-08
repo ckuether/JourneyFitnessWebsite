@@ -7,26 +7,43 @@
 	<style> body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding:1em; } </style>
 </head>
 <body>
-	<div [class.is-hidden]="isEmailVerification != true">
+	<div>
 		<div class="center">
 			<form #f="ngForm" (ngSubmit)="onSubmit(f)">
-		  		<div class="header-text"><b>Journey Fitness</b></div>
-		  		<div class="email-header-text"><b>Email Verification </b></div>
-		  		<div [class.is-hidden]="!isEmailInputPrompt">
+		  		<div class="title-text"><b>Journey Fitness</b></div>
+		  		<div [class.is-hidden]="isEmailVerification != true">
+		  			<div class="header-text"><b>Email Verification </b></div>
 		  			<div>Enter the email you signed up with to </div>
 		  			<div style="padding-bottom: 16px;">complete the verification process</div>
 		  			<input
-			  		class="email-input form-control"
-			  		[(ngModel)]="email"
-			  		name="email"
-			  		required
-			  		type="text">
+				  		class="email-input form-control"
+				  		[(ngModel)]="email"
+				  		name="email"
+				  		required
+				  		type="text">
 
 			  		<button class="btn btn-primary">Submit</button>
+			  		<div [class.is-hidden]="emailVerified == null">
+		  				<div [class.is-hidden]="emailVerified != true">Email Verification Success</div>
+		  				<div [class.is-hidden]="emailVerified != false">Email Verification Failed</div>
+		  			</div>
 		  		</div>
-		  		<div [class.is-hidden]="emailVerified == null">
-		  			<div [class.is-hidden]="emailVerified != true">Email Verification Success</div>
-		  			<div [class.is-hidden]="emailVerified != false">Email Verification Failed</div>
+
+		  		<div [class.is-hidden]="isPasswordReset != true">
+		  			<div class="header-text"><b>Reset Password </b></div>
+		  			<div>Your new password must be 8 characters</div>
+		  			<input
+				  		class="email-input form-control"
+				  		[(ngModel)]="password"
+				  		name="password"
+				  		required
+				  		type="text">
+
+			  		<button class="btn btn-primary">Submit</button>
+			  		<div [class.is-hidden]="passwordReset == null">
+		  				<div [class.is-hidden]="passwordReset != true">Email Verification Success</div>
+		  				<div [class.is-hidden]="passwordReset != false">Email Verification Failed</div>
+		  			</div>
 		  		</div>
 	  		</form>
 		</div>

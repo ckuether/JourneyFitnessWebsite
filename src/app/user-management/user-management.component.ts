@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
-import { Auth, isSignInWithEmailLink, signInWithEmailLink, applyActionCode } from "@angular/fire/auth";
+import { Auth, applyActionCode, confirmPasswordReset } from "@angular/fire/auth";
 import { CookieService } from 'ngx-cookie-service'
 
 @Component({
@@ -11,15 +11,16 @@ import { CookieService } from 'ngx-cookie-service'
 })
 export class UserManagementComponent implements OnInit {
 
-  isEmailInputPrompt: boolean = true
-  emailVerified: boolean|null = null
-
   mode?: string|null = null
   oobCode?: string|null = null
 
-  isEmailVerification: boolean = false
-
   email?: string|null = null
+  isEmailVerification: boolean = false
+  emailVerified: boolean|null = null
+
+  password?: string|null = null
+  isPasswordReset: boolean = false
+  passwordReset: boolean|null = null
 
   constructor(private route: ActivatedRoute, private auth: Auth, private cookieService:CookieService) { 
     this.route.queryParamMap.subscribe(params => {
@@ -28,6 +29,8 @@ export class UserManagementComponent implements OnInit {
 
       if(this.mode == "verifyEmail"){
         this.isEmailVerification = true
+      }else if(this.mode == "resetPassword"){
+        this.isPasswordReset = true
       }
     })
   }
@@ -43,8 +46,14 @@ export class UserManagementComponent implements OnInit {
 
   onSubmit(form: NgForm){
     console.log(this.email)
-    if(this.email != null){
-      this.verifyEmail()
+    if(this.isEmailVerification){
+      if(this.email != null){
+        this.verifyEmail()
+      }
+    }else if(this.isPasswordReset){
+      if(this.password != null){
+        this.updatePassword()
+      }
     }
   }
 
@@ -61,4 +70,15 @@ export class UserManagementComponent implements OnInit {
     }
   }
 
+  updatePassword(){
+    console.log("Update Password Entered: ")
+    if(this.oobCode != null && this.password != null){
+      confirmPasswordReset(this.auth, this.oobCode, this.password).then((resp) => {
+        this.passwordReset = true
+      }).catch((error) => {
+        this.passwordReset = false
+        console.log(error)
+      })
+    }
+  }
 }
