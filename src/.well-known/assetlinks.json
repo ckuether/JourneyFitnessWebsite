@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "fitness.journey.journey_fitness",
+      "sha256_cert_fingerprints":
+        ["84:AE:5F:2B:76:D5:BF:D3:BE:4D:14:87:A3:C5:17:17:2C:7E:A0:3D:C8:D7:6A:C3:CA:DF:FC:2B:2F:6F:8B:C1"]
+    }
+  }
+]

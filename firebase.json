@@ -8,8 +8,8 @@
     ],
     "appAssociation": "AUTO",
     "rewrites": [
-      { "source": "**", "destination": "/index.html" },
-      { "source": "/links/**", "dynamicLinks": true }
+      { "source": "**", "destination": "/index.html" }
+      // { "source": "/links/**", "dynamicLinks": true }
     ]
   }
 }
