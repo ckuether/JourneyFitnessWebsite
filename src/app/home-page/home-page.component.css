@@ -9,10 +9,12 @@
 .app-name-text{
 	font-size: 48px;
 	color: #E96943;
+	font-family: sans-serif;
 }
 
 .tagline-text{
 	font-size: 32px;
 	color: #242424;
 	text-align: center;
+	font-family: sans-serif;
 }
