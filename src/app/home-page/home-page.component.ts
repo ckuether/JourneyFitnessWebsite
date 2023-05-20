@@ -40,6 +40,8 @@ export class HomePageComponent implements OnInit {
     let platform = "Desktop"
     if(this.iOS()){
       platform = "iOS"
+    }else if(this.isAndroid()){
+      platform = "Android"
     }
     return platform
   }
@@ -53,5 +55,10 @@ export class HomePageComponent implements OnInit {
       'iPhone',
       'iPod'
     ].includes(navigator.platform)
+  }
+
+  isAndroid(): boolean {
+    const userAgent = navigator.userAgent;
+    return /Android/.test(userAgent);
   }
 }
