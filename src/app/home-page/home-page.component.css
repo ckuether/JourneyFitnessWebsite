@@ -26,3 +26,14 @@
 	display: inline-block;
 	width: 50%;
 }
+
+.alert {
+		margin-top:  2px;
+		margin-left: 2px;
+    color: red;
+}
+
+.email-confirmation {
+	margin-top:  2px;
+	margin-left: 2px;
+}

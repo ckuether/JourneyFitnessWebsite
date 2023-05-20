@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     RouterModule.forRoot([
       { path: '', component: HomePageComponent},
